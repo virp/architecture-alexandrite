@@ -1,0 +1,10 @@
+@startuml
+MES  -> MES_API : запрос списка заказов
+MES_API -> Cashe : чтение списка заказов
+MES_API <- Cashe : обновление списка заказов
+MES  <- MES_API : список заказов
+
+Refresh_ahead_MES -> MES_DB : запрос изменений списка заказов
+Refresh_ahead_MES <- MES_DB : обновление списка заказов
+Refresh_ahead_MES -> Cashe : обновление списка заказов
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+Messages_Queue -> Refresh_ahead_MES : изменение статуса заказа
+Refresh_ahead_MES -> Cashe : новый статус заказа
+
+MES  -> MES_API : запрос статуса заказов
+MES_API -> Cashe : чтение статуса заказов
+MES_API <- Cashe : обновление статуса заказов
+MES  <- MES_API : статус заказов
+@enduml
